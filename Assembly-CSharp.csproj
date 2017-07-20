@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{BF731106-F445-FE34-3DDA-B2B91338CF62}</ProjectGuid>
+    <ProjectGuid>{225D8012-9531-6660-B653-7F39AB9F76CB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -46,7 +46,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\__Scripts\Bartok.cs" />
      <Compile Include="Assets\__Scripts\Card.cs" />
+     <Compile Include="Assets\__Scripts\CardBartok.cs" />
      <Compile Include="Assets\__Scripts\CardProspector.cs" />
      <Compile Include="Assets\__Scripts\Deck.cs" />
      <Compile Include="Assets\__Scripts\FloatingScore.cs" />
