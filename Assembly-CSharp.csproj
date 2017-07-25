@@ -53,6 +53,7 @@
      <Compile Include="Assets\__Scripts\Deck.cs" />
      <Compile Include="Assets\__Scripts\FloatingScore.cs" />
      <Compile Include="Assets\__Scripts\PT_XMLReader.cs" />
+     <Compile Include="Assets\__Scripts\Player.cs" />
      <Compile Include="Assets\__Scripts\Scoreboard.cs" />
      <Compile Include="Assets\__Scripts\Utils.cs" />
      <None Include="Assets\Resources\DeckXML.xml" />

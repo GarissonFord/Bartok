@@ -85,15 +85,14 @@
 -define:UNITY_EDITOR_OSX
 -define:ENABLE_NATIVE_ARRAY_CHECKS
 -define:UNITY_TEAM_LICENSE
+'Assets/Resources/BartokLayout.cs'
 'Assets/__Scripts/Bartok.cs'
 'Assets/__Scripts/Card.cs'
 'Assets/__Scripts/CardBartok.cs'
-'Assets/__Scripts/CardProspector.cs'
 'Assets/__Scripts/Deck.cs'
 'Assets/__Scripts/FloatingScore.cs'
-'Assets/__Scripts/Layout.cs'
 'Assets/__Scripts/PT_XMLReader.cs'
-'Assets/__Scripts/Prospector.cs'
+'Assets/__Scripts/Player.cs'
 'Assets/__Scripts/Scoreboard.cs'
 'Assets/__Scripts/Utils.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Runtime.Serialization.dll'

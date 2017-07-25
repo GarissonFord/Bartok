@@ -92,6 +92,7 @@
 'Assets/__Scripts/Deck.cs'
 'Assets/__Scripts/FloatingScore.cs'
 'Assets/__Scripts/PT_XMLReader.cs'
+'Assets/__Scripts/Player.cs'
 'Assets/__Scripts/Scoreboard.cs'
 'Assets/__Scripts/Utils.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
