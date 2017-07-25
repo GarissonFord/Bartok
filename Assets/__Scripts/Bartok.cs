@@ -17,6 +17,9 @@ public class Bartok : MonoBehaviour
 	public List<CardBartok> drawPile;
 	public List<CardBartok> discardPile;
 
+	public BartokLayout layout;
+	public Transform layoutAnchor;
+
 	void Awake() 
 	{
 		S = this;
@@ -29,5 +32,20 @@ public class Bartok : MonoBehaviour
 		Deck.Shuffle(ref deck.cards); //Shuffle the deck
 		//The keyword 'ref' passes a reference to deck.cards,
 		//which lets deck.cards be modified by deck.Shuffle()
+
+		layout = GetComponent<BartokLayout> ();
+		layout.ReadLayout (layoutXML.text);
+
+		drawPile = UpgradeCardsList (deck.cards);
+	}
+
+	List<CardBartok> UpgradeCardsList(List<Card> lCD)
+	{
+		List<CardBartok> lCB = new List<CardBartok> ();
+		foreach (Card tCD in lCD) 
+		{
+			lCB.Add (tCD as CardBartok);
+		}
+		return (lCB);
 	}
 }
