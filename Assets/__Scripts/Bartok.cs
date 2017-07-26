@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 //Enum for the different phases of a game turn
 public enum TurnPhase {
@@ -41,11 +43,16 @@ public class Bartok : MonoBehaviour
 	public TurnPhase phase = TurnPhase.idle;
 	public GameObject turnLight;
 
+	public Text GTGameOver;
+	public Text GTRoundResult;
+
 	void Awake() 
 	{
 		S = this;
 
 		turnLight = GameObject.Find ("TurnLight");
+		GTGameOver.text = "";
+		GTRoundResult.text = "";
 	}
 
 	void Start()
@@ -161,6 +168,10 @@ public class Bartok : MonoBehaviour
 		int lastPlayerNum = -1;
 		if (CURRENT_PLAYER != null) {
 			lastPlayerNum = CURRENT_PLAYER.playerNum;
+			//Check for Game Over and need to reshuffle discards
+			if (CheckGameOver ()) {
+				return;
+			}
 		}
 		CURRENT_PLAYER = players [num];
 		phase = TurnPhase.pre;
@@ -274,5 +285,41 @@ public class Bartok : MonoBehaviour
 
 			break;
 		}
+	}
+
+	public bool CheckGameOver() {
+		//See if we need to reshuffle
+		if (drawPile.Count == 0) {
+			List<Card> cards = new List<Card> ();
+			foreach (CardBartok cb in discardPile) {
+				cards.Add (cb);
+			}
+			discardPile.Clear ();
+			Deck.Shuffle (ref cards);
+			drawPile = UpgradeCardsList (cards);
+			ArrangeDrawPile ();
+		}
+
+		//Check if the current player has won
+		if (CURRENT_PLAYER.hand.Count == 0) {
+			//The current player has won
+			if (CURRENT_PLAYER.type == PlayerType.human) {
+				GTGameOver.text = "You Won!";
+				GTRoundResult.text = "";
+			} else {
+				GTGameOver.text = "Game Over";
+				GTRoundResult.text = "Player" + CURRENT_PLAYER.playerNum + " won";
+			}
+
+			Invoke ("RestartGame", 1);
+			return (true);
+		}
+
+		return (false);
+	}
+
+	public void RestartGame() {
+		CURRENT_PLAYER = null;
+		SceneManager.LoadScene ("__Bartok_Scene_0");
 	}
 }
