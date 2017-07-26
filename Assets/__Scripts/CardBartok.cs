@@ -128,4 +128,11 @@ public class CardBartok : Card
 			break;
 		}
 	}
+
+	override public void OnMouseUpAsButton() {
+		//Call the CardClicked 
+		Bartok.S.CardClicked(this);
+		//Also call the base class version of this method
+		base.OnMouseUpAsButton();
+	}
 }
